@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "dev": "bun run index.ts"
+  },
+  "name": "supamistral",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.42.1",
+    "dotenv": "^16.4.5"
+  }
+}
