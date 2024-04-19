@@ -118,7 +118,7 @@ const channel = client
       console.log('board_ticket_data:');
 
       if (record["to_generate"] === false) {
-        console.log('Description already exists:', record["description"])
+        console.log('to generate is false:', record["to_generate"])
         return;
       }
 
@@ -133,7 +133,20 @@ const channel = client
             results = response || "";
 
             // parse the JSON results
-            let json_results = JSON.parse(results);
+            let json_results = {};
+            try {
+              json_results = JSON.parse(results);
+            }
+            catch (e) {
+              console.log('Error parsing JSON:', e);
+              try {
+                json_results = JSON.parse(results+"\n}");
+              }
+              catch (e) {
+                console.log('Error parsing JSON:', e);
+                json_results = { "Title": results.split("\n")[1], "Description": results.split("\n")[2] };
+              }
+            }
             let title = json_results["Title"];
             let description = json_results["Description"];
 
