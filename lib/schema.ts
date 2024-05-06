@@ -9,52 +9,20 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      todos: {
-        Row: {
-          id: number
-          inserted_at: string
-          is_complete: boolean | null
-          task: string | null
-          user_id: string
-        }
-        Insert: {
-          id?: number
-          inserted_at?: string
-          is_complete?: boolean | null
-          task?: string | null
-          user_id: string
-        }
-        Update: {
-          id?: number
-          inserted_at?: string
-          is_complete?: boolean | null
-          task?: string | null
-          user_id?: string
-        }
-      }
       UserData: {
         Row: {
           email: string | null
           username: string | null
-          skills: string | null
-          talents: string | null
-          description: string | null
           user_id: string
         }
         Insert: {
           email?: string | null
           username?: string | null
-          skills?: string | null
-          talents?: string | null
-          description?: string | null
           user_id: string
         }
         Update: {
           email?: string | null
           username?: string | null
-          skills?: string | null
-          talents?: string | null
-          description?: string | null
           user_id?: string
         }
       }
@@ -62,14 +30,17 @@ export interface Database {
         Row: {
           id: number
           name: string
+          proficiency: number
         }
         Insert: {
           id?: number
           name: string
+          proficiency?: number
         }
         Update: {
           id?: number
           name?: string
+          proficiency?: number
         }
       }
       board_members: {
@@ -94,6 +65,7 @@ export interface Database {
           description: string
           assignee_id: string
           status_column: string
+          to_generate: boolean
         }
         Insert: {
           board_id: number
@@ -101,6 +73,7 @@ export interface Database {
           description: string
           assignee_id: string
           status_column: string
+          to_generate: boolean
         }
         Update: {
           board_id?: number
@@ -109,6 +82,7 @@ export interface Database {
           description?: string
           assignee_id?: string
           status_column?: string
+          to_generate: boolean
         }
       }
     }
